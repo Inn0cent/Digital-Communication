@@ -1,0 +1,185 @@
+Purpose: Large Video Test
+********************************
+
+File Name: LargeVideo.mp4
+.........................
+Parameters:
+Window Size: 1
+Look Behind Bits: 2 (3)
+Look Ahead Bits: 6 (63)
+Time Taken To Encode: 14564 milliseconds
+Time Taken To Decode: 345 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.8609849
+-----------------------------
+
+Parameters:
+Window Size: 1
+Look Behind Bits: 4 (15)
+Look Ahead Bits: 4 (15)
+Time Taken To Encode: 13945 milliseconds
+Time Taken To Decode: 200 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.7319176
+-----------------------------
+
+Parameters:
+Window Size: 1
+Look Behind Bits: 6 (63)
+Look Ahead Bits: 2 (3)
+Time Taken To Encode: 13231 milliseconds
+Time Taken To Decode: 207 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.4870158
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 4 (15)
+Look Ahead Bits: 12 (4095)
+Time Taken To Encode: 16054 milliseconds
+Time Taken To Decode: 277 milliseconds
+Correctly Decoded: true
+Compression Rate: 2.5976498
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 6 (63)
+Look Ahead Bits: 10 (1023)
+Time Taken To Encode: 13841 milliseconds
+Time Taken To Decode: 276 milliseconds
+Correctly Decoded: true
+Compression Rate: 2.2048845
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 8 (255)
+Look Ahead Bits: 8 (255)
+Time Taken To Encode: 12602 milliseconds
+Time Taken To Decode: 492 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.6685652
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 10 (1023)
+Look Ahead Bits: 6 (63)
+Time Taken To Encode: 15517 milliseconds
+Time Taken To Decode: 316 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.3757734
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 12 (4095)
+Look Ahead Bits: 4 (15)
+Time Taken To Encode: 27092 milliseconds
+Time Taken To Decode: 368 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.2967486
+-----------------------------
+
+Parameters:
+Window Size: 2
+Look Behind Bits: 14 (16383)
+Look Ahead Bits: 2 (3)
+Time Taken To Encode: 83276 milliseconds
+Time Taken To Decode: 421 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.2372448
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 4 (15)
+Look Ahead Bits: 20 (1048575)
+Time Taken To Encode: 21409 milliseconds
+Time Taken To Decode: 496 milliseconds
+Correctly Decoded: true
+Compression Rate: 3.4635332
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 6 (63)
+Look Ahead Bits: 18 (262143)
+Time Taken To Encode: 19313 milliseconds
+Time Taken To Decode: 432 milliseconds
+Correctly Decoded: true
+Compression Rate: 2.9398448
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 8 (255)
+Look Ahead Bits: 16 (65535)
+Time Taken To Encode: 15662 milliseconds
+Time Taken To Decode: 446 milliseconds
+Correctly Decoded: true
+Compression Rate: 2.2247462
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 10 (1023)
+Look Ahead Bits: 14 (16383)
+Time Taken To Encode: 17269 milliseconds
+Time Taken To Decode: 527 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.834326
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 12 (4095)
+Look Ahead Bits: 12 (4095)
+Time Taken To Encode: 32610 milliseconds
+Time Taken To Decode: 501 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.7267162
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 14 (16383)
+Look Ahead Bits: 10 (1023)
+Time Taken To Encode: 93902 milliseconds
+Time Taken To Decode: 482 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.5931534
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 16 (65535)
+Look Ahead Bits: 8 (255)
+Time Taken To Encode: 309111 milliseconds
+Time Taken To Decode: 563 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.3806207
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 18 (262143)
+Look Ahead Bits: 6 (63)
+Time Taken To Encode: 918801 milliseconds
+Time Taken To Decode: 520 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.216172
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 20 (1048575)
+Look Ahead Bits: 4 (15)
+Time Taken To Encode: 3302370 milliseconds
+Time Taken To Decode: 318 milliseconds
+Correctly Decoded: true
+Compression Rate: 1.1731784
+-----------------------------
+
