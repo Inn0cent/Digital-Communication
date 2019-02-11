@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.reflect.Parameter;
 import java.util.Arrays;
 
 public class Testing {
@@ -7,49 +8,54 @@ public class Testing {
     private static Decoder decoder = new Decoder();
     private static Encoder encoder = new Encoder();
 
+//    Add Logging Files To Process
     public static void main(String[] args) {
-//        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4"};
-        String[] files = {"LargeVideo.mp4"};
+        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf"};
         int fileNum = 0;
         try {
-            BufferedWriter writer = getWriter();
-            writer.write("Purpose: Large Video Test\n********************************\n\n");
+            BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
+            parameterWriter.write("Purpose: Coursework PDF Test\n********************************\n\n");
             for (String fileName : files) {
                 System.out.print("File: " + fileName + "\n");
-                writer.write("File Name: " + fileName +"\n.........................\n");
+                BufferedWriter logWriter = getWriter("Log Files/" + fileName.split("\\.")[0] + ".log");
+                parameterWriter.write("File Name: " + fileName +"\n.........................\n");
                 File file = new File(System.getProperty("user.dir") + "/Test Data/" + fileName);
                 InputStream inputStream = new FileInputStream(file);
                 byte[] data = inputStream.readAllBytes();
                 for (int j = 0; j < parameters.length; j++) {
                     System.out.print("Parameters: " + Arrays.toString(parameters[j]) +"\n");
-                    writeToFile(writer, parameters[j], fileName, "Test" + (fileNum > 0 ? fileNum : ""),  data);
+                    writeToFile(parameterWriter, logWriter, parameters[j], fileName, "Test" + (fileNum > 0 ? fileNum : ""),  data);
                     fileNum++;
                 }
+                parameterWriter.close();
+                logWriter.close();
             }
-            writer.close();
+            parameterWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         removeFiles();
     }
 
-    private static void writeToFile(BufferedWriter writer, int[] parameter, String inputFile, String outputFile, byte[] correctData) throws IOException{
-        writer.write("Parameters:\nWindow Size: " + parameter[0] + "\nLook Behind Bits: " + parameter[1] + " (" + ((1 << parameter[1]) - 1) + ")");
-        writer.write("\nLook Ahead Bits: " + (8 * parameter[0] - parameter[1]) + " (" + ((1 << (8 * parameter[0] - parameter[1])) - 1)+ ")\n");
-
+    private static void writeToFile(BufferedWriter parameterWriter, BufferedWriter logWriter, int[] parameter, String inputFile, String outputFile, byte[] correctData) throws IOException{
+        parameterWriter.write("Parameters:\nWindow Size: " + parameter[0] + "\nLook Behind Bits: " + parameter[1] + " (" + ((1 << parameter[1]) - 1) + ")");
+        parameterWriter.write("\nLook Ahead Bits: " + (8 * parameter[0] - parameter[1]) + " (" + ((1 << (8 * parameter[0] - parameter[1])) - 1)+ ")\n");
+        logWriter.write(parameter[1] + "," + (parameter[0] * 8 - parameter[1]) + ",");
 //        Encode
         long startTime = System.currentTimeMillis();
         encoder.encode(outputFile, inputFile, parameter[0], parameter[1]);
-        writer.write("Time Taken To Encode: " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
-
+        parameterWriter.write("Time Taken To Encode: " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
+        logWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Decode
         startTime = System.currentTimeMillis();
         byte[] data = decoder.decode(outputFile, parameter[0], parameter[1]);
-        writer.write("Time Taken To Decode: " + (System.currentTimeMillis() - startTime) + " milliseconds\n");
-        writer.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
+        parameterWriter.write("Time Taken To Decode: " + (System.currentTimeMillis() - startTime) + " milliseconds\n");
+        logWriter.write((System.currentTimeMillis() - startTime) + ",");
+        parameterWriter.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
 //        Get Compression Rate
-        writer.write("Compression Rate: "  + getFileLength(outputFile) / correctData.length + "\n");
-        writer.write("-----------------------------\n\n");
+        parameterWriter.write("Compression Rate: "  + getFileLength(outputFile) / correctData.length + "\n");
+        logWriter.write(getFileLength(outputFile) / correctData.length + "\n");
+        parameterWriter.write("-----------------------------\n\n");
     }
 
 
@@ -74,13 +80,15 @@ public class Testing {
         }
     }
 
-    public static BufferedWriter getWriter() throws IOException{
-        String startingPath = System.getProperty("user.dir") + "/Parameter Testing/PA Test";
-        File file = new File(startingPath + ".txt");
+    public static BufferedWriter getWriter(String fileName) throws IOException{
+        String startingPath = System.getProperty("user.dir") + "/" + fileName;
+        File file = new File(startingPath);
+        String[] names = startingPath.split("\\.");
         for (int i = 1; file.exists(); i++) {
-            file = new File(startingPath + i + ".txt");
+            file = new File(names[0] + i + "." + names[1]);
         }
         return new BufferedWriter(new FileWriter(file));
+
     }
 
 
