@@ -1,5 +1,7 @@
+import LZ.Decoder;
+import LZ.Encoder;
+
 import java.io.*;
-import java.lang.reflect.Parameter;
 import java.util.Arrays;
 
 public class Testing {

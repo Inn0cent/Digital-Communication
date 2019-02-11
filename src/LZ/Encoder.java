@@ -1,7 +1,6 @@
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+package LZ;
+
 import java.io.*;
-import java.util.Arrays;
 
 public class Encoder {
     public void encode(String outputFileName, String fileToRead, int windowSize, int lookBehindBits) {
@@ -99,7 +98,7 @@ public class Encoder {
 
 
     public static void main(String[] args) {
-//        Tuple tuple = new Tuple(124, 203, (byte) 0);
+//        LZ.Tuple tuple = new LZ.Tuple(124, 203, (byte) 0);
 //        byte[] bits = new byte[3];
 //        addToByteArray(bits, tuple, 0, 16, 8);
 //        System.out.print(Arrays.toString(bits));

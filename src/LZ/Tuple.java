@@ -1,3 +1,5 @@
+package LZ;
+
 public class Tuple {
     public int jump, length;
     public byte nextByte;

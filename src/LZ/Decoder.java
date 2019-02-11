@@ -1,3 +1,5 @@
+package LZ;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -122,7 +124,7 @@ public class Decoder {
 
 //        byte[] array = {(byte) 0, (byte) 124, (byte) -53};
 //        ArrayList<Byte> bytes = new ArrayList<>();
-//        Decoder decoder = new Decoder();
+//        LZ.Decoder decoder = new LZ.Decoder();
 //        decoder.decodeMessage(bytes, array, 0, 16,8);
     }
 
