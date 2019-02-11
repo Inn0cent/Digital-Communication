@@ -1,3 +1,5 @@
+import Huffman.AdaptiveHuffmanCompress;
+import Huffman.AdaptiveHuffmanDecompress;
 import LZ.Decoder;
 import LZ.Encoder;
 
@@ -9,15 +11,17 @@ public class Testing {
                 , {3, 6}, {3, 8}, {3, 10}, {3, 12}, {3, 14}, {3, 16}, {3, 18}, {3, 20}};
     private static Decoder decoder = new Decoder();
     private static Encoder encoder = new Encoder();
+    private static AdaptiveHuffmanCompress huffman_compress = new AdaptiveHuffmanCompress();
+    private static AdaptiveHuffmanDecompress huffmanDecompress = new AdaptiveHuffmanDecompress();
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-//        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf"};
-        String[] files = {"coursework.pdf"};
+        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf", "LargePicture.RAF"};
+//        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
             BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
-            parameterWriter.write("Purpose: Coursework PDF Test\n********************************\n\n");
+            parameterWriter.write("Purpose: Huge Log Test\n********************************\n\n");
             for (String fileName : files) {
                 System.out.print("File: " + fileName + "\n");
                 BufferedWriter logWriter = getWriter("Log Files/" + fileName.split("\\.")[0] + ".log");
@@ -30,7 +34,6 @@ public class Testing {
                     writeToFile(parameterWriter, logWriter, parameters[j], fileName, "Test" + (fileNum > 0 ? fileNum : ""),  data);
                     fileNum++;
                 }
-                parameterWriter.close();
                 logWriter.close();
             }
             parameterWriter.close();
@@ -56,7 +59,7 @@ public class Testing {
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
         parameterWriter.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
 //        Get Compression Rate
-        parameterWriter.write("Compression Rate: "  + getFileLength(outputFile) / correctData.length + "\n");
+        parameterWriter.write("Compression Rate: "  + correctData.length / getFileLength(outputFile) + "\n");
         logWriter.write(getFileLength(outputFile) / correctData.length + "\n");
         parameterWriter.write("-----------------------------\n\n");
     }
