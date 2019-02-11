@@ -10,7 +10,8 @@ public class Testing {
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf"};
+//        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf"};
+        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
             BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
