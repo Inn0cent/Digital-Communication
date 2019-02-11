@@ -41,6 +41,20 @@ public final class AdaptiveHuffmanDecompress {
 			}
 		}
 	}
+
+	public void decompress(String inputFileName, String outputFileName) {
+		File inputFile  = new File(System.getProperty("user.dir") + "/Test Data/" + inputFileName);
+		File outputFile = new File(System.getProperty("user.dir") + "/Test Data/" + outputFileName);
+
+		// Perform file decompression
+		try (BitInputStream in = new BitInputStream(new BufferedInputStream(new FileInputStream(inputFile)))) {
+			try (OutputStream out = new BufferedOutputStream(new FileOutputStream(outputFile))) {
+				decompress(in, out);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	// To allow unit testing, this method is package-private instead of private.

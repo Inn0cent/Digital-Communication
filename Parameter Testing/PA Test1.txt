@@ -1,0 +1,18 @@
+Purpose: Huge Log Test
+********************************
+
+File Name: coursework.pdf
+.........................
+Parameters:
+Window Size: 1
+Look Behind Bits: 2 (3)
+Look Ahead Bits: 6 (63)
+Time Taken To Encode (LZ): 106 milliseconds
+Time Taken To Encode (Huffman): 27 milliseconds
+Time Taken To Decode (LZ): 6 milliseconds
+Correctly Decoded: true
+Time Taken To Decode (Huffman): 7 milliseconds
+Compression Rate: (LZ)0.517573
+Compression Rate: (Huffman)-39555.0
+-----------------------------
+

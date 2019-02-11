@@ -49,15 +49,17 @@ public final class AdaptiveHuffmanCompress {
 		}
 	}
 
-	public void compress(String fileName, String destinationName) {
-		File inputFile  = new File(args[0]);
-		File outputFile = new File(args[1]);
+	public void compress(String inputFileName, String destinationName) {
+		File inputFile  = new File(System.getProperty("user.dir") + "/Test Data/" + inputFileName);
+		File outputFile = new File(System.getProperty("user.dir") + "/Test Data/" + destinationName);
 
 		// Perform file compression
 		try (InputStream in = new BufferedInputStream(new FileInputStream(inputFile))) {
 			try (BitOutputStream out = new BitOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile)))) {
 				compress(in, out);
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
