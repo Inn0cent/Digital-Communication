@@ -78,5 +78,14 @@ def cleanHuffman(fileName):
     file.write(",".join(data))
 
 
-for file in fileNames:
-    plotGraph(file)
+def cleanWindows(fileName):
+    content = open(os.getcwd() + "/log Files/Windows" + fileName + ".log", "r").read().split("\n")
+    file = open(os.getcwd() + "/Log Files/Windows" + fileName + ".log", "w")
+    index = 0
+    for line in content:
+        file.write(line + "\n")
+        if index == 5 or index == 19:
+            file.write("#\n")
+        index += 1
+
+cleanWindows("Chinese")

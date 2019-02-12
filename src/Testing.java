@@ -7,7 +7,9 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Testing {
-    private static int[][] parameters = {{3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6}, {3, 7}, {3, 8}, {3, 9}, {3, 11}, {3, 12},
+    private static int[][] parameters = {{1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {2, 2}, {2, 3}, {2, 4}, {2, 5}
+            , {2, 6}, {2, 7}, {2, 8}, {2, 9}, {2, 10}, {2, 11}, {2, 12}, {2, 13}, {2, 14}, {2, 15},
+            {3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6}, {3, 7}, {3, 8}, {3, 9}, {3, 11}, {3, 12},
             {3, 13}, {3, 14}, {3, 15},  {3, 16},  {3, 17},  {3, 18}, {3, 19},  {3, 20}};
 //    private static int[][] parameters = {{1, 2}};
     private static Decoder decoder = new Decoder();
@@ -17,26 +19,24 @@ public class Testing {
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-        String[] files = {"Large.txt"};
+        String[] files = {"Chinese.txt", "Color.tif", "coursework.pdf", "Large.txt", "Medium.txt", "Small.txt", "video.mp4"};
 //        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
             BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
-            parameterWriter.write("Purpose: Mac Big Test\n********************************\n\n");
+            parameterWriter.write("Purpose: Windows test\n********************************\n\n");
             for (String fileName : files) {
                 System.out.print("File: " + fileName + "\n");
-                BufferedWriter logWriter = getWriter("Log Files/MacBig" + fileName.split("\\.")[0] + ".log");
-                BufferedWriter huffmanWriter = getWriter("Log Files/MacBigHuffman" + fileName.split("\\.")[0] + ".log");
+                BufferedWriter logWriter = getWriter("Log Files/Windows" + fileName.split("\\.")[0] + ".log");
                 parameterWriter.write("File Name: " + fileName +"\n.........................\n");
                 File file = new File(System.getProperty("user.dir") + "/Test Data/" + fileName);
                 InputStream inputStream = new FileInputStream(file);
                 byte[] data = inputStream.readAllBytes();
                 for (int j = 0; j < parameters.length; j++) {
                     System.out.print("Parameters: " + Arrays.toString(parameters[j]) +"\n");
-                    writeToFile(parameterWriter, logWriter, huffmanWriter, parameters[j], fileName, "Test" + (fileNum > 0 ? fileNum : ""),  data);
+                    writeToFile(parameterWriter, logWriter, parameters[j], fileName, "Test" + (fileNum > 0 ? fileNum : ""),  data);
                     fileNum++;
                 }
-                huffmanWriter.close();
                 logWriter.close();
             }
             parameterWriter.close();
@@ -46,7 +46,7 @@ public class Testing {
         removeFiles();
     }
 
-    private static void writeToFile(BufferedWriter parameterWriter, BufferedWriter logWriter, BufferedWriter huffmanWriter, int[] parameter, String inputFile, String outputFile, byte[] correctData) throws IOException{
+    private static void writeToFile(BufferedWriter parameterWriter, BufferedWriter logWriter, int[] parameter, String inputFile, String outputFile, byte[] correctData) throws IOException{
         parameterWriter.write("Parameters:\nWindow Size: " + parameter[0] + "\nLook Behind Bits: " + parameter[1] + " (" + ((1 << parameter[1]) - 1) + ")");
         parameterWriter.write("\nLook Ahead Bits: " + (8 * parameter[0] - parameter[1]) + " (" + ((1 << (8 * parameter[0] - parameter[1])) - 1)+ ")\n");
         logWriter.write(parameter[1] + "," + (parameter[0] * 8 - parameter[1]) + ",");
@@ -56,27 +56,17 @@ public class Testing {
         parameterWriter.write("Time Taken To Encode (LZ): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
 
-        startTime = System.currentTimeMillis();
-        huffman_compress.compress(inputFile, outputFile.split("\\.")[0]);
-        parameterWriter.write("Time Taken To Encode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
-        huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Decode
         startTime = System.currentTimeMillis();
         byte[] data = decoder.decode(outputFile, parameter[0], parameter[1]);
         parameterWriter.write("Time Taken To Decode (LZ): " + (System.currentTimeMillis() - startTime) + " milliseconds\n");
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
 
-        startTime = System.currentTimeMillis();
-        huffmanDecompress.decompress(outputFile.split("\\.")[0]);
-        parameterWriter.write("Time Taken To Decode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
-        huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Get Compression Rate
         parameterWriter.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
         parameterWriter.write("Compression Rate (LZ): "  + correctData.length / getFileLength(outputFile + ".lz") + "\n");
-        parameterWriter.write("Compression Rate (Huffman): "  + correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
 
         logWriter.write(getFileLength(outputFile + ".lz") / correctData.length + "\n");
-        huffmanWriter.write( correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
         parameterWriter.write("-----------------------------\n\n");
     }
 
