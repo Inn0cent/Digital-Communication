@@ -1,0 +1,239 @@
+Purpose: Mac Big Test
+********************************
+
+File Name: Large.txt
+.........................
+Parameters:
+Window Size: 3
+Look Behind Bits: 2 (3)
+Look Ahead Bits: 22 (4194303)
+Time Taken To Encode (LZ): 28589 milliseconds
+Time Taken To Encode (Huffman): 456 milliseconds
+Time Taken To Decode (LZ): 693 milliseconds
+Time Taken To Decode (Huffman): 300 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.29729116
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 3 (7)
+Look Ahead Bits: 21 (2097151)
+Time Taken To Encode (LZ): 19877 milliseconds
+Time Taken To Encode (Huffman): 410 milliseconds
+Time Taken To Decode (LZ): 416 milliseconds
+Time Taken To Decode (Huffman): 279 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.3576956
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 4 (15)
+Look Ahead Bits: 20 (1048575)
+Time Taken To Encode (LZ): 17037 milliseconds
+Time Taken To Encode (Huffman): 386 milliseconds
+Time Taken To Decode (LZ): 445 milliseconds
+Time Taken To Decode (Huffman): 467 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.41465342
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 5 (31)
+Look Ahead Bits: 19 (524287)
+Time Taken To Encode (LZ): 13963 milliseconds
+Time Taken To Encode (Huffman): 365 milliseconds
+Time Taken To Decode (LZ): 498 milliseconds
+Time Taken To Decode (Huffman): 321 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.48527247
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 6 (63)
+Look Ahead Bits: 18 (262143)
+Time Taken To Encode (LZ): 13220 milliseconds
+Time Taken To Encode (Huffman): 580 milliseconds
+Time Taken To Decode (LZ): 468 milliseconds
+Time Taken To Decode (Huffman): 277 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.6010213
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 7 (127)
+Look Ahead Bits: 17 (131071)
+Time Taken To Encode (LZ): 11433 milliseconds
+Time Taken To Encode (Huffman): 345 milliseconds
+Time Taken To Decode (LZ): 349 milliseconds
+Time Taken To Decode (Huffman): 262 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.7066643
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 8 (255)
+Look Ahead Bits: 16 (65535)
+Time Taken To Encode (LZ): 11951 milliseconds
+Time Taken To Encode (Huffman): 348 milliseconds
+Time Taken To Decode (LZ): 301 milliseconds
+Time Taken To Decode (Huffman): 266 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.8204842
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 9 (511)
+Look Ahead Bits: 15 (32767)
+Time Taken To Encode (LZ): 8434 milliseconds
+Time Taken To Encode (Huffman): 322 milliseconds
+Time Taken To Decode (LZ): 308 milliseconds
+Time Taken To Decode (Huffman): 255 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 0.94001985
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 11 (2047)
+Look Ahead Bits: 13 (8191)
+Time Taken To Encode (LZ): 12208 milliseconds
+Time Taken To Encode (Huffman): 448 milliseconds
+Time Taken To Decode (LZ): 485 milliseconds
+Time Taken To Decode (Huffman): 311 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.1843898
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 12 (4095)
+Look Ahead Bits: 12 (4095)
+Time Taken To Encode (LZ): 14693 milliseconds
+Time Taken To Encode (Huffman): 332 milliseconds
+Time Taken To Decode (LZ): 306 milliseconds
+Time Taken To Decode (Huffman): 284 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.3064893
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 13 (8191)
+Look Ahead Bits: 11 (2047)
+Time Taken To Encode (LZ): 23648 milliseconds
+Time Taken To Encode (Huffman): 336 milliseconds
+Time Taken To Decode (LZ): 288 milliseconds
+Time Taken To Decode (Huffman): 263 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.4335238
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 14 (16383)
+Look Ahead Bits: 10 (1023)
+Time Taken To Encode (LZ): 34728 milliseconds
+Time Taken To Encode (Huffman): 668 milliseconds
+Time Taken To Decode (LZ): 450 milliseconds
+Time Taken To Decode (Huffman): 287 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.5720366
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 15 (32767)
+Look Ahead Bits: 9 (511)
+Time Taken To Encode (LZ): 60209 milliseconds
+Time Taken To Encode (Huffman): 353 milliseconds
+Time Taken To Decode (LZ): 255 milliseconds
+Time Taken To Decode (Huffman): 273 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.7455446
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 16 (65535)
+Look Ahead Bits: 8 (255)
+Time Taken To Encode (LZ): 106485 milliseconds
+Time Taken To Encode (Huffman): 320 milliseconds
+Time Taken To Decode (LZ): 255 milliseconds
+Time Taken To Decode (Huffman): 258 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 1.9072821
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 17 (131071)
+Look Ahead Bits: 7 (127)
+Time Taken To Encode (LZ): 185345 milliseconds
+Time Taken To Encode (Huffman): 320 milliseconds
+Time Taken To Decode (LZ): 254 milliseconds
+Time Taken To Decode (Huffman): 258 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 2.0452466
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 18 (262143)
+Look Ahead Bits: 6 (63)
+Time Taken To Encode (LZ): 351954 milliseconds
+Time Taken To Encode (Huffman): 327 milliseconds
+Time Taken To Decode (LZ): 430 milliseconds
+Time Taken To Decode (Huffman): 398 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 2.1726804
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 19 (524287)
+Look Ahead Bits: 5 (31)
+Time Taken To Encode (LZ): 617453 milliseconds
+Time Taken To Encode (Huffman): 328 milliseconds
+Time Taken To Decode (LZ): 373 milliseconds
+Time Taken To Decode (Huffman): 274 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 2.288177
+Compression Rate (Huffman): 1.725676
+-----------------------------
+
+Parameters:
+Window Size: 3
+Look Behind Bits: 20 (1048575)
+Look Ahead Bits: 4 (15)
+Time Taken To Encode (LZ): 1174334 milliseconds
+Time Taken To Encode (Huffman): 320 milliseconds
+Time Taken To Decode (LZ): 275 milliseconds
+Time Taken To Decode (Huffman): 270 milliseconds
+Correctly Decoded: true
+Compression Rate (LZ): 2.3423455
+Compression Rate (Huffman): 1.725676
+-----------------------------
+

@@ -7,8 +7,8 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Testing {
-    private static int[][] parameters = {{1, 2}, {1, 4}, {1, 6}, {2, 4}, {2, 6}, {2, 8}, {2, 10}, {2, 12}, {2, 14}
-            , {3, 4}, {3, 6}, {3, 8}, {3, 12}, {3, 14}, {3, 16}, {3, 18}, {3, 20}};
+    private static int[][] parameters = {{3, 2}, {3, 3}, {3, 4}, {3, 5}, {3, 6}, {3, 7}, {3, 8}, {3, 9}, {3, 11}, {3, 12},
+            {3, 13}, {3, 14}, {3, 15},  {3, 16},  {3, 17},  {3, 18}, {3, 19},  {3, 20}};
 //    private static int[][] parameters = {{1, 2}};
     private static Decoder decoder = new Decoder();
     private static Encoder encoder = new Encoder();
@@ -17,16 +17,16 @@ public class Testing {
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf", "LargePicture.RAF"};
+        String[] files = {"Large.txt"};
 //        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
             BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
-            parameterWriter.write("Purpose: Huge Log Test\n********************************\n\n");
+            parameterWriter.write("Purpose: Mac Big Test\n********************************\n\n");
             for (String fileName : files) {
                 System.out.print("File: " + fileName + "\n");
-                BufferedWriter logWriter = getWriter("Log Files/" + fileName.split("\\.")[0] + ".log");
-                BufferedWriter huffmanWriter = getWriter("Log Files/Huffman" + fileName.split("\\.")[0] + ".log");
+                BufferedWriter logWriter = getWriter("Log Files/MacBig" + fileName.split("\\.")[0] + ".log");
+                BufferedWriter huffmanWriter = getWriter("Log Files/MacBigHuffman" + fileName.split("\\.")[0] + ".log");
                 parameterWriter.write("File Name: " + fileName +"\n.........................\n");
                 File file = new File(System.getProperty("user.dir") + "/Test Data/" + fileName);
                 InputStream inputStream = new FileInputStream(file);
@@ -57,7 +57,7 @@ public class Testing {
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
 
         startTime = System.currentTimeMillis();
-        huffman_compress.compress(inputFile, outputFile.split("\\.")[0] + ".huff");
+        huffman_compress.compress(inputFile, outputFile.split("\\.")[0]);
         parameterWriter.write("Time Taken To Encode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
         huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Decode
@@ -67,7 +67,7 @@ public class Testing {
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
 
         startTime = System.currentTimeMillis();
-        huffmanDecompress.decompress(outputFile.split("\\.")[0] + ".huff");
+        huffmanDecompress.decompress(outputFile.split("\\.")[0]);
         parameterWriter.write("Time Taken To Decode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
         huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Get Compression Rate
@@ -76,7 +76,7 @@ public class Testing {
         parameterWriter.write("Compression Rate (Huffman): "  + correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
 
         logWriter.write(getFileLength(outputFile + ".lz") / correctData.length + "\n");
-        huffmanWriter.write(getFileLength(outputFile.split("\\.")[0] + ".huff") / correctData.length + "\n");
+        huffmanWriter.write( correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
         parameterWriter.write("-----------------------------\n\n");
     }
 

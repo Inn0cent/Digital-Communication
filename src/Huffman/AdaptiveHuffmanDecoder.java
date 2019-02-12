@@ -44,7 +44,7 @@ public final class AdaptiveHuffmanDecoder {
 
 	public void decompress(String inputFileName) {
 		File inputFile  = new File(System.getProperty("user.dir") + "/Results/" + inputFileName + ".huff");
-		File outputFile = new File(System.getProperty("user.dir") + "/Results/" + "Decoded" + inputFileName);
+		File outputFile = new File(System.getProperty("user.dir") + "/Results/" + "Decoded" + inputFileName + ".huff");
 
 		// Perform file decompression
 		try (BitInputStream in = new BitInputStream(new BufferedInputStream(new FileInputStream(inputFile)))) {

@@ -51,22 +51,7 @@ public final class AdaptiveHuffmanEncoder {
 
 	public void compress(String inputFileName, String destinationName) {
 		File inputFile  = new File(System.getProperty("user.dir") + "/Test Data/" + inputFileName);
-		File outputFile = new File(System.getProperty("user.dir") + "/Results/" + destinationName);
-
-		// Perform file compression
-		try (InputStream in = new BufferedInputStream(new FileInputStream(inputFile))) {
-			try (BitOutputStream out = new BitOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile)))) {
-				compress(in, out);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void compressForDeflate(String inputFileName) {
-		String destinationName = inputFileName.split("\\.")[0] + ".huff";
-		File inputFile  = new File(System.getProperty("user.dir") + "/Test Data/" + inputFileName);
-		File outputFile = new File(System.getProperty("user.dir") + "/Results/" + destinationName);
+		File outputFile = new File(System.getProperty("user.dir") + "/Results/" + destinationName + ".huff");
 
 		// Perform file compression
 		try (InputStream in = new BufferedInputStream(new FileInputStream(inputFile))) {
