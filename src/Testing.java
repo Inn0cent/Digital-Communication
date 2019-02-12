@@ -1,5 +1,5 @@
-import Huffman.AdaptiveHuffmanCompress;
-import Huffman.AdaptiveHuffmanDecompress;
+import Huffman.AdaptiveHuffmanEncoder;
+import Huffman.AdaptiveHuffmanDecoder;
 import LZ.Decoder;
 import LZ.Encoder;
 
@@ -7,16 +7,18 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Testing {
-    private static int[][] parameters = {{1, 2}};
+    private static int[][] parameters = {{1, 2}, {1, 4}, {1, 6}, {2, 4}, {2, 6}, {2, 8}, {2, 10}, {2, 12}, {2, 14}
+            , {3, 4}, {3, 6}, {3, 8}, {3, 12}, {3, 14}, {3, 16}, {3, 18}, {3, 20}};
+//    private static int[][] parameters = {{1, 2}};
     private static Decoder decoder = new Decoder();
     private static Encoder encoder = new Encoder();
-    private static AdaptiveHuffmanCompress huffman_compress = new AdaptiveHuffmanCompress();
-    private static AdaptiveHuffmanDecompress huffmanDecompress = new AdaptiveHuffmanDecompress();
+    private static AdaptiveHuffmanEncoder huffman_compress = new AdaptiveHuffmanEncoder();
+    private static AdaptiveHuffmanDecoder huffmanDecompress = new AdaptiveHuffmanDecoder();
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-//        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf", "LargePicture.RAF"};
-        String[] files = {"coursework.pdf"};
+        String[] files = {"BW.tif", "Color.tif", "Chinese.txt", "Large.txt", "Medium.txt", "Small.txt", "video.mp4", "LargeVideo.mp4", "coursework.pdf", "LargePicture.RAF"};
+//        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
             BufferedWriter parameterWriter = getWriter("Parameter Testing/PA Test.txt");
@@ -55,7 +57,6 @@ public class Testing {
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
 
         startTime = System.currentTimeMillis();
-        System.out.print(outputFile.split("\\.")[0] + ".huff");
         huffman_compress.compress(inputFile, outputFile.split("\\.")[0] + ".huff");
         parameterWriter.write("Time Taken To Encode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
         huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
@@ -64,15 +65,15 @@ public class Testing {
         byte[] data = decoder.decode(outputFile, parameter[0], parameter[1]);
         parameterWriter.write("Time Taken To Decode (LZ): " + (System.currentTimeMillis() - startTime) + " milliseconds\n");
         logWriter.write((System.currentTimeMillis() - startTime) + ",");
-        parameterWriter.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
 
         startTime = System.currentTimeMillis();
-        huffmanDecompress.decompress(inputFile, outputFile.split("\\.")[0] + ".huff");
+        huffmanDecompress.decompress(outputFile.split("\\.")[0] + ".huff");
         parameterWriter.write("Time Taken To Decode (Huffman): " + (System.currentTimeMillis() - startTime)  + " milliseconds\n");
         huffmanWriter.write((System.currentTimeMillis() - startTime) + ",");
 //        Get Compression Rate
-        parameterWriter.write("Compression Rate: (LZ)"  + correctData.length / getFileLength(outputFile + ".lz") + "\n");
-        parameterWriter.write("Compression Rate: (Huffman)"  + correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
+        parameterWriter.write("Correctly Decoded: " + decoder.checkSame(data, correctData) + "\n");
+        parameterWriter.write("Compression Rate (LZ): "  + correctData.length / getFileLength(outputFile + ".lz") + "\n");
+        parameterWriter.write("Compression Rate (Huffman): "  + correctData.length / getFileLength(outputFile.split("\\.")[0] + ".huff") + "\n");
 
         logWriter.write(getFileLength(outputFile + ".lz") / correctData.length + "\n");
         huffmanWriter.write(getFileLength(outputFile.split("\\.")[0] + ".huff") / correctData.length + "\n");
@@ -92,12 +93,9 @@ public class Testing {
     }
 
     private static void removeFiles() {
-        File file = new File(System.getProperty("user.dir") + "/Results/Test.lz");
-        int i = 1;
-        while(file.exists()) {
+        File[] files =  new File(System.getProperty("user.dir") + "/Results").listFiles();
+        for (File file : files) {
             file.delete();
-            file = new File(System.getProperty("user.dir") + "/Results/Test" + i + ".lz");
-            i++;
         }
     }
 

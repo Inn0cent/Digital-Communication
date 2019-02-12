@@ -11,24 +11,6 @@ public class Decoder {
         return toArray(decodeData(encodedData, windowSize, lookBehindBits));
     }
 
-
-    public String decodeString(byte[] data) {
-        return new String(data);
-    }
-
-
-    public void decodeImage(String imageName, byte[] data) {
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(data);
-            BufferedImage image = ImageIO.read(bis);
-            File file = new File(System.getProperty("user.dir") + "/Results/" + imageName + ".png");
-            ImageIO.write(image, "png", file);
-        } catch (IOException e) {
-            System.out.print("Invalid File Name!");
-            e.printStackTrace();
-        }
-    }
-
     public boolean checkSame(byte[] decoded, byte[] data) {
         if (decoded.length != data.length) {
             System.out.print(data.length + ", " + decoded.length );
