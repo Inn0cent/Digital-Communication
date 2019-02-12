@@ -1,7 +1,7 @@
 import os
 from matplotlib import pyplot as plt
-fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
-# fileNames = ["Medium", "Color", "video"]
+# fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
+fileNames = ["Medium", "Color", "video"]
 
 
 def openFile(fileName, mode):
@@ -81,11 +81,12 @@ def cleanHuffman(fileName):
 def cleanWindows(fileName):
     content = open(os.getcwd() + "/log Files/Windows" + fileName + ".log", "r").read().split("\n")
     file = open(os.getcwd() + "/Log Files/Windows" + fileName + ".log", "w")
-    index = 0
     for line in content:
-        file.write(line + "\n")
-        if index == 5 or index == 19:
-            file.write("#\n")
-        index += 1
-
-cleanWindows("Chinese")
+        if len(line) > 5:
+            data = line.split(",")
+            data[2] = str(int(data[2]) / 1000)
+            file.write(",".join(data) + "\n")
+        else:
+            file.write(line + "\n")
+for file in fileNames:
+    cleanWindows(file)
