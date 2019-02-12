@@ -14,7 +14,6 @@ def openFile(fileName, mode):
 # Window Bits, Length Bits, Encoding Time Taken (ms), Decoding Time Taken (ms), Compression Rate (Original / Compressed)
 def plotGraph(fileName):
     content = openFile(fileName, "r").split("&")
-    print(len(content[1]))
     titleNames = ["Encoder Run Time " + ("(s)" if len(content[1]) > 4 else "(ms)"), "Decoder Run Time (ms) "]
     content = content[0].split("#")
     windowSizes = [[], [], []]
@@ -35,7 +34,8 @@ def plotGraph(fileName):
         plt.xlabel('Window Bits')
         plt.ylabel(titleNames[graphIndex])
         for parameterIndex in range(len(windowSizes)):
-            plt.plot(windowSizes[parameterIndex], parameters[graphIndex][parameterIndex], color=color[parameterIndex])
+            plt.scatter(windowSizes[parameterIndex], parameters[graphIndex][parameterIndex], color=color[parameterIndex])
+            plt.plot(windowSizes[parameterIndex], parameters[graphIndex][parameterIndex], color=color[parameterIndex], linewidth=1, linestyle=':')
         plt.savefig(os.getcwd() + "/Graph Files/" + fileName + " " + titleNames[graphIndex] + ".png")
         plt.close()
 
@@ -67,7 +67,6 @@ def cleanHuffman(fileName):
     content = open(os.getcwd() + "/log Files/MacHuffman" + fileName + ".log", "r").read()
     file = open(os.getcwd() + "/Log Files/MacHuffman" + fileName + ".log", "w")
     file.write(content.split("\n")[0])
-
 
 for file in fileNames:
     plotGraph(file)
