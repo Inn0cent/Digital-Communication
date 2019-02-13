@@ -1,8 +1,8 @@
 import os
 from matplotlib import pyplot as plt
 import math
-fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
-# fileNames = ["Chinese", "coursework", "Small", "video"]
+# fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
+fileNames = ["Color", "Large", "video"]
 
 
 def openFile(fileName, mode):
@@ -76,7 +76,7 @@ def cleanHuffman(fileName):
     content = open(os.getcwd() + "/log Files/Huffman" + fileName + ".log", "r").read()
     file = open(os.getcwd() + "/Log Files/Huffman" + fileName + ".log", "w")
     data = content.split(",")
-    data[0], data[2] = str(int(float(data[0]))), str(round(float(data[2]), 3))
+    data[0], data[2] = str(float(data[0]) / 1000), str(round(float(data[2]), 3))
     file.write(",".join(data))
 
 
