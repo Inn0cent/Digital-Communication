@@ -71,6 +71,19 @@ def fileReset(fileName):
             file.write(line + "\n")
 
 
+def cleanLarge():
+    content = open(os.getcwd() + "/Log Files/LargePicture.txt", "r").read()
+    file = open(os.getcwd() + "/Log Files/LargePicture.txt", "w")
+    for dataSegment in content.split("-"):
+        for parameter in dataSegment.split("#"):
+            index = 0
+            for line in parameter.split("\n"):
+                if index != 3 or index != 5 or index != 7:
+                    file.write(line + "\n")
+            index += 1
+            file.write("#\n")
+        file.write("-\n")
+
 def cleanHuffman(fileName):
     content = open(os.getcwd() + "/log Files/Huffman" + fileName + ".log", "r").read()
     file = open(os.getcwd() + "/Log Files/Huffman" + fileName + ".log", "w")
@@ -85,5 +98,4 @@ def cleanWindows(fileName):
     file.write("&True")
 
 
-for file in fileNames:
-    plotGraph(file)
+cleanLarge()

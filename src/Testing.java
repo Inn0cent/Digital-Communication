@@ -19,7 +19,7 @@ public class Testing {
 
 //    Add Logging Files To Process
     public static void main(String[] args) {
-        String[] files = {"Chinese.txt", "Color.tif", "coursework.pdf", "Large.txt", "Medium.txt", "Small.txt", "video.mp4"};
+        String[] files = {"LargePicture.RAF"};
 //        String[] files = {"coursework.pdf"};
         int fileNum = 0;
         try {
