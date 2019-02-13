@@ -1,8 +1,8 @@
 import os
 from matplotlib import pyplot as plt
 import math
-# fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
-fileNames = ["Color", "Large", "video"]
+fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
+# fileNames = ["Color", "Large", "video"]
 
 
 def openFile(fileName, mode):
@@ -43,7 +43,7 @@ def plotGraph(fileName):
         plt.plot([1, 18], [huffmanParameters[graphIndex], huffmanParameters[graphIndex]], label= "Huffman")
         plt.title(titleNames[graphIndex])
         plt.xlabel('Window Bits')
-        plt.ylabel(titleNames[graphIndex] + " " + str(parameterIndex + 1) + " Bytes")
+        plt.ylabel(titleNames[graphIndex])
         plt.legend(loc = "upper right")
         plt.savefig(os.getcwd() + "/Graph Files/More " + fileName + " " + titleNames[graphIndex] + ".png")
         plt.close()
