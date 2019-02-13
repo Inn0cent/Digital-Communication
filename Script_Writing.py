@@ -80,9 +80,10 @@ def cleanLarge():
                 index = 0
                 print(len(parameter.split("\n")))
                 for line in parameter.split("\n"):
-                    if index != 3 and index != 5 and index != 7:
-                        file.write(line + "\n")
-                    index += 1
+                    if len(line) > 4:
+                        if index != 3 and index != 5 and index != 7:
+                            file.write(line + "\n")
+                        index += 1
             file.write("#\n")
         file.write("-\n")
 
