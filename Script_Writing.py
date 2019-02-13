@@ -35,6 +35,7 @@ def plotGraph(fileName):
     huffmanEncoding, huffmanDecoding, huffmanCompression = float(content[0]), int(content[1]), float(content[2])
     huffmanParameters = [huffmanEncoding, huffmanDecoding, huffmanCompression]
     for graphIndex in range(len(titleNames)):
+        print(titleNames[graphIndex])
         color = ['r', 'g', 'b']
         for parameterIndex in range(len(windowSizes)):
             plt.scatter(windowSizes[parameterIndex], parameters[graphIndex][parameterIndex], color=color[parameterIndex])
@@ -75,7 +76,7 @@ def cleanHuffman(fileName):
     content = open(os.getcwd() + "/log Files/Huffman" + fileName + ".log", "r").read()
     file = open(os.getcwd() + "/Log Files/Huffman" + fileName + ".log", "w")
     data = content.split(",")
-    data[0], data[2] = str(int(data[0]) / 1000), str(round(float(data[2]), 3))
+    data[0], data[2] = str(int(float(data[0]))), str(round(float(data[2]), 3))
     file.write(",".join(data))
 
 
@@ -83,6 +84,7 @@ def cleanWindows(fileName):
     content = open(os.getcwd() + "/log Files/Windows" + fileName + ".log", "r").read().split("\n")
     file = open(os.getcwd() + "/Log Files/Windows" + fileName + ".log", "a+")
     file.write("&True")
+
 
 for file in fileNames:
     plotGraph(file)
