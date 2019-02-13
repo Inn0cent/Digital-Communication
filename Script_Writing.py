@@ -14,7 +14,7 @@ def openFile(fileName, mode):
 # Window Bits, Length Bits, Encoding Time Taken (ms), Decoding Time Taken (ms), Compression Rate (Original / Compressed)
 def plotGraph(fileName):
     content = openFile(fileName, "r").split("&")
-    titleNames = ["Encoder Run Time " + ("(s)" if len(content[1]) > 4 else "(ms)"), "Decoder Run Time (ms) ", "Compression Rate"]
+    titleNames = ["Encoder Run Time " + ("(s)" if len(content[1]) > 5 else "(ms)"), "Decoder Run Time (ms) ", "Compression Rate"]
     content = content[0].split("#")
     windowSizes = [[], [], []]
     encodingTimes = [[], [], []]
@@ -99,5 +99,4 @@ def cleanWindows(fileName):
 
 
 for file in fileNames:
-    invertFile(file)
-    cleanHuffman(file)
+    plotGraph(file)
