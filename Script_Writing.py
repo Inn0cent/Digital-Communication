@@ -76,11 +76,13 @@ def cleanLarge():
     file = open(os.getcwd() + "/Log Files/LargePicture.txt", "w")
     for dataSegment in content.split("-"):
         for parameter in dataSegment.split("#"):
-            index = 0
-            for line in parameter.split("\n"):
-                if index != 3 or index != 5 or index != 7:
-                    file.write(line + "\n")
-            index += 1
+            if len(parameter) > 2:
+                index = 0
+                print(len(parameter.split("\n")))
+                for line in parameter.split("\n"):
+                    if index != 3 and index != 5 and index != 7:
+                        file.write(line + "\n")
+                    index += 1
             file.write("#\n")
         file.write("-\n")
 
