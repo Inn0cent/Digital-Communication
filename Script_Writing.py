@@ -72,22 +72,23 @@ def fileReset(fileName):
             file.write(line + "\n")
 
 
-def cleanLarge():
-    content = open(os.getcwd() + "/Log Files/LargePicture.log", "r").read()
-    file = open(os.getcwd() + "/Log Files/LargePicture.log", "w")
-    for dataSegment in content.split("-"):
-        for parameter in dataSegment.split("#"):
-            if len(parameter) > 2:
-                for line in parameter.split("\n"):
-                    file.write(re.sub('[^0-9]', "", line) + "\n")
-            file.write("#\n")
-        file.write("-\n")
+def invertFile(fileName):
+    content = open(os.getcwd() + "/Log Files/" + fileName + ".log", "r").read()
+    file = open(os.getcwd() + "/Log Files/" + fileName + ".log", "w")
+    for line in content.split("\n"):
+        if len(line) > 7:
+            data = line.split(",")
+            data[4] = str(round(1/ float(data[4]), 3))
+            file.write(",".join(data) + "\n")
+        else:
+            file.write(line + "\n")
+
 
 def cleanHuffman(fileName):
     content = open(os.getcwd() + "/log Files/Huffman" + fileName + ".log", "r").read()
     file = open(os.getcwd() + "/Log Files/Huffman" + fileName + ".log", "w")
     data = content.split(",")
-    data[0], data[2] = str(float(data[0]) / 1000), str(round(float(data[2]), 3))
+    data[2] =  str(round(1 /float(data[2]), 3))
     file.write(",".join(data))
 
 
@@ -97,4 +98,6 @@ def cleanWindows(fileName):
     file.write("&True")
 
 
-plotGraph("LargePicture")
+for file in fileNames:
+    invertFile(file)
+    cleanHuffman(file)
