@@ -13,7 +13,7 @@ def openFile(fileName, mode):
 
 # Window Bits, Length Bits, Encoding Time Taken (ms), Decoding Time Taken (ms), Compression Rate (Original / Compressed)
 def plotGraph(fileName):
-    content = openFile("Windows" + fileName, "r").split("&")
+    content = openFile(fileName, "r").split("&")
     titleNames = ["Encoder Run Time " + ("(s)" if len(content[1]) > 4 else "(ms)"), "Decoder Run Time (ms) ", "Compression Rate"]
     content = content[0].split("#")
     windowSizes = [[], [], []]
@@ -73,8 +73,8 @@ def fileReset(fileName):
 
 
 def cleanLarge():
-    content = open(os.getcwd() + "/Log Files/LargePicture.txt", "r").read()
-    file = open(os.getcwd() + "/Log Files/LargePicture.txt", "w")
+    content = open(os.getcwd() + "/Log Files/LargePicture.log", "r").read()
+    file = open(os.getcwd() + "/Log Files/LargePicture.log", "w")
     for dataSegment in content.split("-"):
         for parameter in dataSegment.split("#"):
             if len(parameter) > 2:
@@ -97,4 +97,4 @@ def cleanWindows(fileName):
     file.write("&True")
 
 
-cleanLarge()
+plotGraph("LargePicture")

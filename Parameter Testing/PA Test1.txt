@@ -2230,4 +2230,3 @@ Correctly Decoded: true
 Compression Rate (LZ): 1.183769
 Compression Rate (Huffman): 1.2179385
 -----------------------------
-
