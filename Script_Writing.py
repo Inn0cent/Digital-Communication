@@ -1,5 +1,6 @@
 import os
 from matplotlib import pyplot as plt
+import re
 fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
 # fileNames = ["Color", "Large", "video"]
 
@@ -77,13 +78,8 @@ def cleanLarge():
     for dataSegment in content.split("-"):
         for parameter in dataSegment.split("#"):
             if len(parameter) > 2:
-                index = 0
-                print(len(parameter.split("\n")))
                 for line in parameter.split("\n"):
-                    if len(line) > 4:
-                        if index != 3 and index != 5 and index != 7:
-                            file.write(line + "\n")
-                        index += 1
+                    file.write(re.sub('[^0-9]', "", line) + "\n")
             file.write("#\n")
         file.write("-\n")
 
