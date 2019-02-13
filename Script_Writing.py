@@ -1,6 +1,5 @@
 import os
 from matplotlib import pyplot as plt
-import math
 fileNames = ["Chinese", "Color", "coursework", "Large", "Medium", "Small", "video"]
 # fileNames = ["Color", "Large", "video"]
 
